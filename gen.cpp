@@ -75,7 +75,7 @@ void NewBenGen::genVia1(){
     parseIO("./benchmarks/Via1/Via1.iopad");
     parseBump("./benchmarks/Via1/Via1.bump");
     parseNet("./benchmarks/Via1/Via1.net");
-    parseSFA("./benchmarks/Via1/Via1.faorder", group_num);
+    parseSFA("./benchmarks/Via1/Via1.order", group_num);
     parseParam("./benchmarks/Via1/Via1.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
 
 
@@ -119,7 +119,7 @@ void NewBenGen::genVia2(){
     parseIO("./benchmarks/Via2/Via2.iopad");
     parseBump("./benchmarks/Via2/Via2.bump");
     parseNet("./benchmarks/Via2/Via2.net");
-    parseSFA("./benchmarks/Via2/Via2.faorder", group_num);
+    parseSFA("./benchmarks/Via2/Via2.order", group_num);
     parseParam("./benchmarks/Via2/Via2.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
 
 
@@ -160,7 +160,7 @@ void NewBenGen::genVia3(){
     parseIO("./benchmarks/Via3/Via3.iopad");
     parseBump("./benchmarks/Via3/Via3.bump");
     parseNet("./benchmarks/Via3/Via3.net");
-    parseSFA("./benchmarks/Via3/Via3.faorder", group_num);
+    parseSFA("./benchmarks/Via3/Via3.order", group_num);
     parseParam("./benchmarks/Via3/Via3.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
 
 
@@ -201,7 +201,7 @@ void NewBenGen::genVia4(){
     parseIO("./benchmarks/Via4/Via4.iopad");
     parseBump("./benchmarks/Via4/Via4.bump");
     parseNet("./benchmarks/Via4/Via4.net");
-    parseSFA("./benchmarks/Via4/Via4.faorder", group_num);
+    parseSFA("./benchmarks/Via4/Via4.order", group_num);
     parseParam("./benchmarks/Via4/Via4.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
 
 
@@ -242,7 +242,7 @@ void NewBenGen::genVia5(){
     parseIO("./benchmarks/Via5/Via5.iopad");
     parseBump("./benchmarks/Via5/Via5.bump");
     parseNet("./benchmarks/Via5/Via5.net");
-    parseSFA("./benchmarks/Via5/Via5.faorder", group_num);
+    parseSFA("./benchmarks/Via5/Via5.order", group_num);
     parseParam("./benchmarks/Via5/Via5.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
 
 
@@ -676,7 +676,7 @@ void NewBenGen::parseSFA (const char* filename, int group_num)
     fout << "[East]" << endl;
     for (size_t i = 0; i < _sfa_east.size(); ++i){
         if ( (i % group_num)==0){
-            fout << "<Group>" << endl;
+            fout << "<GROUP>" << endl;
         }
         IndexTuple t = _sfa_east[i];
         fout << "io_d" << t._dindex << "_" << t._sindex << "_" << t._vindex << endl;
@@ -685,7 +685,7 @@ void NewBenGen::parseSFA (const char* filename, int group_num)
     fout << "[West]" << endl;
     for (size_t i = 0; i < _sfa_west.size(); ++i){
         if ( (i % group_num)==0){
-            fout << "<Group>" << endl;
+            fout << "<GROUP>" << endl;
         }
         IndexTuple t = _sfa_west[i];
         fout << "io_d" << t._dindex << "_" << t._sindex << "_" << t._vindex << endl;
@@ -694,7 +694,7 @@ void NewBenGen::parseSFA (const char* filename, int group_num)
     fout << "[South]" << endl;
     for (size_t i = 0; i < _sfa_south.size(); ++i){
         if ( (i % group_num)==0){
-            fout << "<Group>" << endl;
+            fout << "<GROUP>" << endl;
         }
         IndexTuple t = _sfa_south[i];
         fout << "io_d" << t._dindex << "_" << t._sindex << "_" << t._vindex << endl;
@@ -703,7 +703,7 @@ void NewBenGen::parseSFA (const char* filename, int group_num)
     fout << "[North]" << endl;
     for (size_t i = 0; i < _sfa_north.size(); ++i){
         if ( (i % group_num)==0){
-            fout << "<Group>" << endl;
+            fout << "<GROUP>" << endl;
         }
         IndexTuple t = _sfa_north[i];
         fout << "io_d" << t._dindex << "_" << t._sindex << "_" << t._vindex << endl;
