@@ -87,21 +87,166 @@ void NewBenGen::genVia1(){
 
 void NewBenGen::genVia2(){
 
+    int package_w = 6000;
+    int package_h = 6000;
+    double SFA_ratio = 0.25; // SFA side ratio
+    int group_num = 3;       // SFA group
+    
+
+    // set package boundary
+    _boundary = Rect(0, 0, package_w, package_h);
+
+    // generate Dies(4) ---------------------------
+
+    // TODO: add dies here
+
+    // generate IOs -----------------------------
+    genIOs(IO_PITCH, VIA_IO_WIDTH);
+
+    // generate PAs. only generate PA in Sidepair ------------------------
+    _sp.clear();
+
+    // TODO: add sidepairs here
+
+    genPAs();
+
+    // generate SFAs -----------------------------
+    genSFAs(package_w, package_h, SFA_ratio);
+
+    // generate regular bump -----------------------
+    genBumps(BUMPPAD_WIDTH, BUMPPAD_PITCH);
+
+    parseIO("./benchmarks/Via2/Via2.iopad");
+    parseBump("./benchmarks/Via2/Via2.bump");
+    parseNet("./benchmarks/Via2/Via2.net");
+    parseSFA("./benchmarks/Via2/Via2.faorder", group_num);
+    parseParam("./benchmarks/Via2/Via2.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
+
+
+    plot("./benchmarks/Via2/Via2.plt", package_w, package_h);
 }
 
 
 void NewBenGen::genVia3(){
+    int package_w = 8000;
+    int package_h = 8000;
+    double SFA_ratio = 0.25; // SFA side ratio
+    int group_num = 3;       // SFA group
+    
 
+    // set package boundary
+    _boundary = Rect(0, 0, package_w, package_h);
+
+    // generate Dies(7) ---------------------------
+
+    // TODO: add dies here
+
+    // generate IOs -----------------------------
+    genIOs(IO_PITCH, VIA_IO_WIDTH);
+
+    // generate PAs. only generate PA in Sidepair ------------------------
+    _sp.clear();
+
+    // TODO: add sidepairs here
+
+    genPAs();
+
+    // generate SFAs -----------------------------
+    genSFAs(package_w, package_h, SFA_ratio);
+
+    // generate regular bump -----------------------
+    genBumps(BUMPPAD_WIDTH, BUMPPAD_PITCH);
+
+    parseIO("./benchmarks/Via3/Via3.iopad");
+    parseBump("./benchmarks/Via3/Via3.bump");
+    parseNet("./benchmarks/Via3/Via3.net");
+    parseSFA("./benchmarks/Via3/Via3.faorder", group_num);
+    parseParam("./benchmarks/Via3/Via3.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
+
+
+    plot("./benchmarks/Via3/Via3.plt", package_w, package_h);
 }
 
 
 void NewBenGen::genVia4(){
+    int package_w = 12000;
+    int package_h = 6000;
+    double SFA_ratio = 0.25; // SFA side ratio
+    int group_num = 3;       // SFA group
+    
 
+    // set package boundary
+    _boundary = Rect(0, 0, package_w, package_h);
+
+    // generate Dies(12) ---------------------------
+
+    // TODO: add dies here
+
+    // generate IOs -----------------------------
+    genIOs(IO_PITCH, VIA_IO_WIDTH);
+
+    // generate PAs. only generate PA in Sidepair ------------------------
+    _sp.clear();
+
+    // TODO: add sidepairs here
+
+    genPAs();
+
+    // generate SFAs -----------------------------
+    genSFAs(package_w, package_h, SFA_ratio);
+
+    // generate regular bump -----------------------
+    genBumps(BUMPPAD_WIDTH, BUMPPAD_PITCH);
+
+    parseIO("./benchmarks/Via4/Via4.iopad");
+    parseBump("./benchmarks/Via4/Via4.bump");
+    parseNet("./benchmarks/Via4/Via4.net");
+    parseSFA("./benchmarks/Via4/Via4.faorder", group_num);
+    parseParam("./benchmarks/Via4/Via4.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
+
+
+    plot("./benchmarks/Via4/Via4.plt", package_w, package_h);
 }
 
 
 void NewBenGen::genVia5(){
+    int package_w = 16000;
+    int package_h = 12000;
+    double SFA_ratio = 0.25; // SFA side ratio
+    int group_num = 3;       // SFA group
+    
 
+    // set package boundary
+    _boundary = Rect(0, 0, package_w, package_h);
+
+    // generate Dies(20) ---------------------------
+
+    // TODO: add dies here
+
+    // generate IOs -----------------------------
+    genIOs(IO_PITCH, VIA_IO_WIDTH);
+
+    // generate PAs. only generate PA in Sidepair ------------------------
+    _sp.clear();
+
+    // TODO: add sidepairs here
+
+    genPAs();
+
+    // generate SFAs -----------------------------
+    genSFAs(package_w, package_h, SFA_ratio);
+
+    // generate regular bump -----------------------
+    genBumps(BUMPPAD_WIDTH, BUMPPAD_PITCH);
+
+    parseIO("./benchmarks/Via5/Via5.iopad");
+    parseBump("./benchmarks/Via5/Via5.bump");
+    parseNet("./benchmarks/Via5/Via5.net");
+    parseSFA("./benchmarks/Via5/Via5.faorder", group_num);
+    parseParam("./benchmarks/Via5/Via5.gp", package_w, package_h, LAYER_NUMBER, WIRE_WIDTH, VIA_IO_WIDTH, IO_PITCH);
+
+
+    plot("./benchmarks/Via5/Via5.plt", package_w, package_h);
 }
 
 
