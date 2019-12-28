@@ -61,9 +61,9 @@ void NewBenGen::genVia1(){
 
     // generate PAs
     _sp.clear();
-    _sp.emplace_back( SidePair(0, 0, 1, 2) );
-    _sp.emplace_back( SidePair(0, 0, 2, 2) );
-    _sp.emplace_back( SidePair(1, 1, 2, 3) );
+    _sp.emplace_back( 0, 0, 1, 2 );
+    _sp.emplace_back( 0, 0, 2, 2 );
+    _sp.emplace_back( 1, 1, 2, 3 );
     genPAs();
 
     // generate SFAs
@@ -291,7 +291,7 @@ void NewBenGen::genIOs(double pitch, double width){
             double rx      = lx + width ;
             double by      = die.getTy() - pitch - width;
             double ty      = die.getTy() - pitch;
-            if( (rand() % 10) > 3){
+            if( (rand() % 10) > 1){
                 _io_north[i].emplace_back( Rect(lx, by, rx, ty) );
             }
             lx += (width + pitch);
@@ -303,7 +303,7 @@ void NewBenGen::genIOs(double pitch, double width){
             double rx      = lx + width;
             double by      = die.getBy() + pitch;
             double ty      = die.getBy() + pitch + width;
-            if( (rand() % 10) > 3){
+            if( (rand() % 10) > 1){
                 _io_south[i].emplace_back( Rect(lx, by, rx, ty) );
             }
             lx += (width + pitch) ;
@@ -315,7 +315,7 @@ void NewBenGen::genIOs(double pitch, double width){
             double ty      = by + width ;
             double lx      = die.getLx() + pitch;
             double rx      = die.getLx() + pitch + width;
-            if( (rand() % 10) > 3){
+            if( (rand() % 10) > 1){
                 _io_west[i].emplace_back( Rect(lx, by, rx, ty) );
             }
             by += (width + pitch) ;
@@ -326,7 +326,7 @@ void NewBenGen::genIOs(double pitch, double width){
             double ty      = by + width;
             double lx      = die.getRx() - pitch - width;
             double rx      = die.getRx() - pitch ;
-            if( (rand() % 10) > 3){
+            if( (rand() % 10) > 1){
                 _io_east[i].emplace_back( Rect(lx, by, rx, ty) );
             }
             by += (width + pitch) ;
@@ -415,7 +415,7 @@ NewBenGen::genSFAs (int Width, int Height, double b_ratio)
                 continue;
             }
             
-            if( (rand() % 10) > 3){
+            if( (rand() % 10) > 2){
                 continue;
             }
 
@@ -448,7 +448,7 @@ NewBenGen::genSFAs (int Width, int Height, double b_ratio)
                 continue;
             }
 
-            if( (rand() % 10) > 3){
+            if( (rand() % 10) > 2){
                 continue;
             }
             
@@ -480,7 +480,7 @@ NewBenGen::genSFAs (int Width, int Height, double b_ratio)
                 continue;
             }
 
-            if( (rand() % 10) > 3){
+            if( (rand() % 10) > 2){
                 continue;
             }
             
@@ -512,7 +512,7 @@ NewBenGen::genSFAs (int Width, int Height, double b_ratio)
                 continue;
             }
 
-            if( (rand() % 10) > 3){
+            if( (rand() % 10) > 2){
                 continue;
             }
             
@@ -673,7 +673,7 @@ void NewBenGen::parseSFA (const char* filename, int group_num)
     fout.open(filename);
 
 
-    fout << "[East]" << endl;
+    fout << "[EAST]" << endl;
     for (size_t i = 0; i < _sfa_east.size(); ++i){
         if ( (i % group_num)==0){
             fout << "<GROUP>" << endl;
@@ -682,7 +682,7 @@ void NewBenGen::parseSFA (const char* filename, int group_num)
         fout << "io_d" << t._dindex << "_" << t._sindex << "_" << t._vindex << endl;
     }
 
-    fout << "[West]" << endl;
+    fout << "[WEST]" << endl;
     for (size_t i = 0; i < _sfa_west.size(); ++i){
         if ( (i % group_num)==0){
             fout << "<GROUP>" << endl;
@@ -691,7 +691,7 @@ void NewBenGen::parseSFA (const char* filename, int group_num)
         fout << "io_d" << t._dindex << "_" << t._sindex << "_" << t._vindex << endl;
     }
 
-    fout << "[South]" << endl;
+    fout << "[SOUTH]" << endl;
     for (size_t i = 0; i < _sfa_south.size(); ++i){
         if ( (i % group_num)==0){
             fout << "<GROUP>" << endl;
@@ -700,7 +700,7 @@ void NewBenGen::parseSFA (const char* filename, int group_num)
         fout << "io_d" << t._dindex << "_" << t._sindex << "_" << t._vindex << endl;
     }
 
-    fout << "[North]" << endl;
+    fout << "[NORTH]" << endl;
     for (size_t i = 0; i < _sfa_north.size(); ++i){
         if ( (i % group_num)==0){
             fout << "<GROUP>" << endl;
