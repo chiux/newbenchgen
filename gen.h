@@ -64,12 +64,20 @@ class NewBenGen {
     void genVia5();
 
 
-    void genBumps(const char* filename, double width, double pitch);
+    void genBumps(double width, double pitch);
     void genIOs(double pitch, double width);
     void genPAs();
+    void genSFAs (int Width, int Height, double b_ratio);
     Rect getByIndexTuple(IndexTuple tup);
+
+    void parseBump (const char* filename);
     void parseIO (const char* filename);
     void parseNet (const char* filename);
+    void parseSFA (const char* filename, int group_num);
+    void parseParam (const char* filename, double pkgw, double pkgh, double lnum, double ww, double vw, double p);
+
+    bool compareSFA_ver(IndexTuple i1, IndexTuple i2);
+    bool compareSFA_hor(IndexTuple i1, IndexTuple i2);
 
     void plot(std::string filename, int Width, int Height);
 
@@ -83,6 +91,11 @@ class NewBenGen {
     std::vector< std::vector<Rect> > _io_east;
     std::vector< std::vector<Rect> > _io_south;
     std::vector< std::vector<Rect> > _io_west;
+
+    std::vector< IndexTuple > _sfa_north;
+    std::vector< IndexTuple > _sfa_east;
+    std::vector< IndexTuple > _sfa_south;
+    std::vector< IndexTuple > _sfa_west;
 
     std::map< IndexTuple, IndexTuple, IndexTupleLesser > _pa;
     std::vector<SidePair> _sp;
