@@ -51,9 +51,9 @@ void NewBenGen::genVia1(){
 
     // generate Dies(3)
 
-    _dies.emplace_back(Rect(1000, 1000, 4000, 2500));
-    _dies.emplace_back(Rect(1000, 3000, 2000, 4000));
-    _dies.emplace_back(Rect(3000, 3000, 4000, 4000));
+    _dies.emplace_back(1000, 1000, 4000, 2500);
+    _dies.emplace_back(1000, 3000, 2000, 4000);
+    _dies.emplace_back(3000, 3000, 4000, 4000);
 
 
     // generate IOs
@@ -81,7 +81,6 @@ void NewBenGen::genVia1(){
 
     plot("./benchmarks/Via1/Via1.plt", package_w, package_h);
 
-
 }
 
 
@@ -100,6 +99,11 @@ void NewBenGen::genVia2(){
 
     // TODO: add dies here
 
+    _dies.emplace_back(1500, 500, 4500, 3000);
+    _dies.emplace_back(1000, 3500, 3000, 5000);
+    _dies.emplace_back(3500, 3500, 4500, 5500);
+    _dies.emplace_back(5000, 3500, 5500, 5500);
+
     // generate IOs -----------------------------
     genIOs(IO_PITCH, VIA_IO_WIDTH);
 
@@ -107,6 +111,10 @@ void NewBenGen::genVia2(){
     _sp.clear();
 
     // TODO: add sidepairs here
+    _sp.emplace_back( 0, 0, 1, 2 );
+    _sp.emplace_back( 0, 0, 2, 2 );
+    _sp.emplace_back( 1, 1, 2, 3 );
+    _sp.emplace_back( 2, 1, 3, 3 );
 
     genPAs();
 
@@ -130,7 +138,7 @@ void NewBenGen::genVia2(){
 void NewBenGen::genVia3(){
     int package_w = 8000;
     int package_h = 8000;
-    double SFA_ratio = 0.25; // SFA side ratio
+    double SFA_ratio = 0.15; // SFA side ratio
     int group_num = 3;       // SFA group
     
 
@@ -140,6 +148,13 @@ void NewBenGen::genVia3(){
     // generate Dies(7) ---------------------------
 
     // TODO: add dies here
+    _dies.emplace_back(1000, 1000, 2000, 2000);
+    _dies.emplace_back(3000, 1000, 5000, 3000);
+    _dies.emplace_back(6000, 2000, 7000, 4000);
+    _dies.emplace_back(1000, 3500, 3000, 5000);
+    _dies.emplace_back(1500, 5500, 3500, 7000);
+    _dies.emplace_back(4000, 5000, 6000, 6000);
+    _dies.emplace_back(5500, 6500, 7500, 7500);
 
     // generate IOs -----------------------------
     genIOs(IO_PITCH, VIA_IO_WIDTH);
@@ -148,6 +163,15 @@ void NewBenGen::genVia3(){
     _sp.clear();
 
     // TODO: add sidepairs here
+    _sp.emplace_back( 0, 1, 1, 3 );
+    _sp.emplace_back( 0, 0, 3, 2 );
+    _sp.emplace_back( 1, 1, 2, 3 );
+    _sp.emplace_back( 2, 3, 3, 1 );
+    _sp.emplace_back( 2, 0, 5, 2 );
+    _sp.emplace_back( 3, 0, 4, 2 );
+    _sp.emplace_back( 4, 1, 5, 3 );
+    _sp.emplace_back( 4, 1, 6, 3 );
+    _sp.emplace_back( 5, 0, 6, 2 );
 
     genPAs();
 
@@ -171,7 +195,7 @@ void NewBenGen::genVia3(){
 void NewBenGen::genVia4(){
     int package_w = 12000;
     int package_h = 6000;
-    double SFA_ratio = 0.25; // SFA side ratio
+    double SFA_ratio = 0.15; // SFA side ratio
     int group_num = 3;       // SFA group
     
 
@@ -181,6 +205,18 @@ void NewBenGen::genVia4(){
     // generate Dies(12) ---------------------------
 
     // TODO: add dies here
+    _dies.emplace_back(500, 500, 2000, 2000);
+    _dies.emplace_back(3000, 1000, 4500, 2000);
+    _dies.emplace_back(5000, 1000, 6000, 4000);
+    _dies.emplace_back(6500, 1000, 8500, 3000);
+    _dies.emplace_back(9000, 1000, 10000, 4000);
+    _dies.emplace_back(10500, 1000, 11500, 3000);
+    _dies.emplace_back(1000, 2500, 2500, 4000);
+    _dies.emplace_back(500, 4500, 2000, 5500);
+    _dies.emplace_back(3000, 3000, 4000, 5000);
+    _dies.emplace_back(4500, 4500, 6500, 5500);
+    _dies.emplace_back(7000, 4000, 8500, 5500);
+    _dies.emplace_back(9000, 4500, 11500, 5500);
 
     // generate IOs -----------------------------
     genIOs(IO_PITCH, VIA_IO_WIDTH);
@@ -189,6 +225,21 @@ void NewBenGen::genVia4(){
     _sp.clear();
 
     // TODO: add sidepairs here
+    _sp.emplace_back( 0, 1, 1, 3 );
+    _sp.emplace_back( 0, 0, 6, 2 );
+    _sp.emplace_back( 1, 1, 2, 3 );
+    _sp.emplace_back( 1, 0, 8, 2 );
+    _sp.emplace_back( 2, 1, 3, 3 );
+    _sp.emplace_back( 2, 0, 9, 2 );
+    _sp.emplace_back( 3, 1, 4, 3 );
+    _sp.emplace_back( 3, 0, 10, 2 );
+    _sp.emplace_back( 4, 1, 5, 3 );
+    _sp.emplace_back( 4, 0, 11, 2 );
+    _sp.emplace_back( 6, 0, 7, 2 );
+    _sp.emplace_back( 6, 1, 8, 3 );
+    _sp.emplace_back( 8, 1, 9, 3 );
+    _sp.emplace_back( 9, 1, 10, 3 );
+    _sp.emplace_back( 10, 1, 11, 3 );
 
     genPAs();
 
@@ -212,7 +263,7 @@ void NewBenGen::genVia4(){
 void NewBenGen::genVia5(){
     int package_w = 16000;
     int package_h = 12000;
-    double SFA_ratio = 0.25; // SFA side ratio
+    double SFA_ratio = 0.1; // SFA side ratio
     int group_num = 3;       // SFA group
     
 
@@ -222,6 +273,27 @@ void NewBenGen::genVia5(){
     // generate Dies(20) ---------------------------
 
     // TODO: add dies here
+    _dies.emplace_back(1000, 1000, 2500, 3000);
+    _dies.emplace_back(3500, 1000, 7000, 3000);
+    _dies.emplace_back(8000, 500, 10000, 3500);
+    _dies.emplace_back(10500, 500, 12000, 2500);
+    _dies.emplace_back(12500, 1000, 15000, 2000);
+    _dies.emplace_back(1000, 3500, 5000, 5000);
+    _dies.emplace_back(6000, 3500, 7500, 6000);
+    _dies.emplace_back(10500, 3000, 13000, 5000);
+    _dies.emplace_back(13500, 2500, 15500, 4500);
+    _dies.emplace_back(1000, 6000, 2500, 8000);
+    _dies.emplace_back(3500, 6000, 5000, 9000);
+    _dies.emplace_back(6000, 6500, 7000, 8500);
+    _dies.emplace_back(8000, 6000, 11000, 7500);
+    _dies.emplace_back(11500, 6000, 13500, 7500);
+    _dies.emplace_back(14500, 5000, 15500, 7500);
+    _dies.emplace_back(1500, 9000, 3000, 10000);
+    _dies.emplace_back(4000, 9500, 7000, 11000);
+    _dies.emplace_back(7500, 8000, 9000, 11000);
+    _dies.emplace_back(10000, 8500, 13000, 10500);
+    _dies.emplace_back(13500, 8000, 15500, 11000);
+    
 
     // generate IOs -----------------------------
     genIOs(IO_PITCH, VIA_IO_WIDTH);
@@ -230,6 +302,41 @@ void NewBenGen::genVia5(){
     _sp.clear();
 
     // TODO: add sidepairs here
+    _sp.emplace_back( 0, 1, 1, 3 );
+    _sp.emplace_back( 0, 0, 5, 2 );
+    _sp.emplace_back( 1, 1, 2, 3 );
+    _sp.emplace_back( 1, 0, 5, 2 );
+    _sp.emplace_back( 2, 1, 3, 3 );
+    _sp.emplace_back( 2, 0, 12, 2 );
+    _sp.emplace_back( 3, 1, 4, 3 );
+    _sp.emplace_back( 3, 0, 7, 2 );
+    _sp.emplace_back( 4, 0, 8, 2 );
+    _sp.emplace_back( 5, 1, 6, 3 );
+    _sp.emplace_back( 5, 0, 9, 2 );
+    _sp.emplace_back( 5, 0, 10, 2 );
+    _sp.emplace_back( 6, 1, 7, 3 );
+    _sp.emplace_back( 6, 0, 11, 2 );
+    _sp.emplace_back( 7, 1, 8, 3 );
+    _sp.emplace_back( 7, 0, 13, 2 );
+    _sp.emplace_back( 8, 0, 14, 2 );
+    _sp.emplace_back( 9, 1, 10, 3 );
+    _sp.emplace_back( 9, 0, 15, 2 );
+    _sp.emplace_back( 10, 1, 11, 3 );
+    _sp.emplace_back( 10, 0, 16, 2 );
+    _sp.emplace_back( 11, 1, 12, 3 );
+    _sp.emplace_back( 11, 0, 16, 2 );
+    _sp.emplace_back( 12, 1, 13, 3 );
+    _sp.emplace_back( 12, 0, 17, 2 );
+    _sp.emplace_back( 12, 0, 18, 2 );
+    _sp.emplace_back( 13, 1, 14, 3 );
+    _sp.emplace_back( 13, 0, 18, 2 );
+    _sp.emplace_back( 14, 0, 19, 2 );
+    _sp.emplace_back( 15, 1, 16, 3 );
+    _sp.emplace_back( 16, 1, 17, 3 );
+    _sp.emplace_back( 17, 1, 18, 3 );
+    _sp.emplace_back( 18, 1, 19, 3 );
+    
+
 
     genPAs();
 

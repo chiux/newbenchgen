@@ -10,7 +10,7 @@ int main()
     // srand((unsigned)time(NULL));
     NewBenGen ngen;
     
-    ngen.genVia1();
+    ngen.genVia5();
     
     return 0;
 }
